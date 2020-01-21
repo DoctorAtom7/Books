@@ -44,6 +44,25 @@ main()
 			else
 				printf("error: zero divisor\n");
 			break;
+		case 'p':
+			op2 = pop();
+			printf("\t%.8g\n", op2);
+			push(op2);
+			break;
+		case 'd':
+			op2 = pop();
+			push(op2);
+			push(op2);
+			break;
+		case 's':
+			op1 = pop();
+			op2 = pop();
+			push(op2);
+			push(op1);
+			break;
+		case 'c':
+			clear();
+			break;
 		case '\n':
 			printf("\t%.8g\n", pop());
 			break;
@@ -78,6 +97,11 @@ double pop(void)
 		printf("error: stack empty\n");
 		return 0.0;
 	}
+}
+
+void clear(void)
+{
+	sp = 0;
 }
 
 #include <ctype.h>
